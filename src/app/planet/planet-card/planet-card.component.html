@@ -1,0 +1,28 @@
+<div class="planet-card">
+    <div class="left-container">
+        <img class="planet-image" src="{{planet.imagePath}}">
+        <span class="emphasized-text">{{planet.name}}</span>
+    </div>
+    <div class="middle-container" *ngIf="planet.description">
+        <span>{{(planet.description.text ? ('"' + planet.description.text + '"') : 'No information available.') |
+            truncate:[26, '...']}}</span>
+        <div class="captain-and-robots-container">
+            <span class="by-captain">
+                <span class="emphasized-text">by captain </span>
+                <span class="captain-name">{{planet.description.captain}}</span>
+            </span>
+            <span class="robots">
+                <span class="emphasized-text">Robots: </span>
+                <span *ngIf="planet.description.robots.length === 0">-</span>
+                <span *ngFor="let robot of planet.description.robots; let isLast=last">{{robot}}{{isLast ? '.' :
+                    ','}}&nbsp;</span>
+            </span>
+        </div>
+    </div>
+    <div class="no-description-container" *ngIf="!planet.description">
+        <span>No description yet :/</span>
+    </div>
+    <div class="right-container">
+        <span class="emphasized-text" [style.color]="statusColor[planet.status]">{{planet.status}}</span>
+    </div>
+</div>

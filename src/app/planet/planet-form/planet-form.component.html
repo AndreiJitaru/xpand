@@ -1,0 +1,41 @@
+<div class="dialog-title-container">
+    <span>Edit planet data</span>
+</div>
+<form class="dialog-body-container" (ngSubmit)='onSubmit()' [formGroup]="planetForm" *ngIf="planetForm">
+    <div class="dialog-body-content">
+        <div id="image-and-name-container">
+            <img [src]="planet.imagePath">
+            <span>{{planet.name}}</span>
+        </div>
+        <div id="description-container">
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Status</mat-label>
+                <mat-select formControlName="status" (selectionChange)="onSelectionChanged($event)">
+                    <mat-option *ngFor="let status of statuses" [value]="status">{{status}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <ng-container formGroupName="description">
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Captain</mat-label>
+                    <mat-select formControlName="captain">
+                        <mat-option *ngFor="let captain of captains" [value]="captain">{{captain}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Robots</mat-label>
+                    <mat-select formControlName="robots" multiple>
+                        <mat-option *ngFor="let robot of robots" [value]="robot">{{robot}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Description</mat-label>
+                    <textarea matInput formControlName="text" type="text"></textarea>
+                </mat-form-field>                    
+            </ng-container>
+        </div>
+    </div>
+    <div class="dialog-btns-container">
+        <button mat-raised-button type="button" (click)="closeDialog()">Cancel</button>
+        <button mat-raised-button id="cancel-btn" color="accent" type="submit" [disabled]="!planetForm.valid">Save</button>
+    </div>
+</form>

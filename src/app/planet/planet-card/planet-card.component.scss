@@ -1,0 +1,73 @@
+@import '../../../styles.scss';
+
+.planet-card {
+    display: flex;
+    flex-direction: row;
+    max-width: 300px;
+    min-height: 110px;
+    border: 1px solid mat-color($primary, 0.5);
+    padding: 15px;
+    padding-left: 0;
+}
+
+.planet-card:hover {
+    border: 1px solid mat-color($primary);
+    cursor: pointer;
+}
+
+.left-container, .middle-container, .captain-and-robots-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.left-container {
+    text-align: center;
+}
+
+.middle-container {
+    width: 50%;
+    padding: 5px;
+    justify-content: space-between;
+}
+
+.right-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    min-width: 55px;
+}
+
+.no-description-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.planet-image {
+    max-width: 100px;
+    max-height: 75px;
+}
+
+.captain-name {
+    text-decoration: underline;
+}
+
+.emphasized-text {
+    font-weight: bold;
+}
+
+.robots {
+    font-size: 15px;
+}
+
+.by-captain {
+    font-size: 12px;
+}
+
+@media only screen and (max-width: 640px) {
+    .planet-card {
+        width: auto;
+        max-width: unset;
+    }
+}

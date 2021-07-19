@@ -1,0 +1,7 @@
+<div id="planets-container">
+    <div fxLayout="row wrap" fxLayoutGap="8px grid">
+        <div *ngFor="let planet of planets" fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="33%" fxFlex.lg="25%">
+            <app-planet-card [planet]="planet" (click)="openEditPlanetDialog(planet.id)"></app-planet-card>
+        </div>
+    </div>
+</div>
